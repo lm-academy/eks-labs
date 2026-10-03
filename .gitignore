@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+
+# Terraform (any subdirectory)
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+tfplan
+*.tfplan
+
+# Terraform variable files (keep the *.example ones)
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+
+# Kubernetes / local kubeconfig
+kubeconfig
+kubeconfig.*
+*.kubeconfig
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Editors
+.idea/
+*.swp
+*~

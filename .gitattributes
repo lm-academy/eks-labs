@@ -1,0 +1,12 @@
+# LF everywhere, so files behave the same on Windows as inside the Linux devcontainer.
+* text=auto eol=lf
+
+*.tf   text eol=lf
+*.hcl  text eol=lf
+*.sh   text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.yaml text eol=lf
+
+*.png binary
+*.pdf binary
