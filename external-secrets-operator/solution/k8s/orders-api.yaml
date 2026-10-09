@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-api
+  namespace: orders
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders-api
+  template:
+    metadata:
+      labels:
+        app: orders-api
+    spec:
+      containers:
+        - name: orders-api
+          image: busybox:1.38.0
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              trap 'exit 0' TERM
+              while true; do
+                echo "$(date +%T)  env: ${DB_PASSWORD}  file: $(cat /etc/db-credentials/password)"
+                sleep 5 & wait $!
+              done
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: password
+          volumeMounts:
+            - name: db-credentials
+              mountPath: /etc/db-credentials
+              readOnly: true
+      volumes:
+        - name: db-credentials
+          secret:
+            secretName: db-credentials
