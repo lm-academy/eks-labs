@@ -1,0 +1,4 @@
+serviceAccount:
+  name: external-secrets
+
+processSecretStore: false

@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: orders-api
   namespace: orders
+  annotations:
+    secret.reloader.stakater.com/reload: db-credentials
 spec:
   replicas: 1
   selector:

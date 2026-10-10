@@ -6,4 +6,6 @@ locals {
     },
     var.tags
   )
+
+  eso_teams = toset(["orders", "payments"])
 }
