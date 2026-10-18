@@ -5,6 +5,7 @@ Standalone hands-on labs for the Amazon EKS with Terraform course. Each folder i
 ## The folders
 
 - `external-secrets-operator/`: sync a secret from AWS Secrets Manager into a Kubernetes Secret with the External Secrets Operator.
+- `load-balancer-controller/`: expose a workload through an Application Load Balancer with the AWS Load Balancer Controller, first from an Ingress and then from Gateway API.
 
 ## Inside a folder
 
